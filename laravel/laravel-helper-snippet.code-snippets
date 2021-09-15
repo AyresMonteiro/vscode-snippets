@@ -116,9 +116,9 @@ class ${TM_FILENAME_BASE}
 
 	protected static function update${TM_FILENAME_BASE/^(.+)Helper$/$1/}(array \$findData, array \$updateData)
   {
-    GenericHelper::validate(${TM_FILENAME_BASE/^(.+)Helper$/$1/}::getUpdateValidator(\$updateData));
-
     \$${TM_FILENAME_BASE/^(.+)Helper$/${1:/downcase}/} = self::get${TM_FILENAME_BASE/^(.+)Helper$/$1/}(\$findData);
+		
+    GenericHelper::validate(${TM_FILENAME_BASE/^(.+)Helper$/$1/}::getUpdateValidator(\$updateData));
 
     \$${TM_FILENAME_BASE/^(.+)Helper$/${1:/downcase}/}->fill(\$updateData);
 
@@ -251,9 +251,9 @@ class ${TM_FILENAME_BASE}
 			"",
 			"  protected static function update${TM_FILENAME_BASE/^(.+)Helper$/$1/}(array \\$findData, array \\$updateData)",
 			"  {",
-			"    GenericHelper::validate(${TM_FILENAME_BASE/^(.+)Helper$/$1/}::getUpdateValidator(\\$updateData));",
-			"",
 			"    \\$${TM_FILENAME_BASE/^(.+)Helper$/${1:/downcase}/} = self::get${TM_FILENAME_BASE/^(.+)Helper$/$1/}(\\$findData);",
+			"",
+			"    GenericHelper::validate(${TM_FILENAME_BASE/^(.+)Helper$/$1/}::getUpdateValidator(\\$updateData));",
 			"",
 			"    \\$${TM_FILENAME_BASE/^(.+)Helper$/${1:/downcase}/}->fill(\\$updateData);",
 			"",

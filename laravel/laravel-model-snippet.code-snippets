@@ -1,0 +1,106 @@
+{
+	/*
+<?php
+
+namespace App\Models;
+
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Validator;
+
+class ${TM_FILENAME_BASE} extends Model
+{
+    use HasFactory;
+
+		protected \$fillable = [
+        'created_at',
+        'updated_at',
+    ];
+
+    public static function getQueryValidator(array \$data)
+    {
+        return Validator::make(\$data, [
+          'id' => ['nullable', 'integer'],
+					'created_at_greater_than' => ['nullable', 'date'],
+          'created_at_lesser_than' => ['nullable', 'date'],
+          'updated_at_greater_than' => ['nullable', 'date'],
+          'updated_at_lesser_than' => ['nullable', 'date'],
+				]);
+    }
+
+    public static function getStoreValidator(array \$data)
+    {
+        return Validator::make(\$data, []);
+    }
+
+    public static function getStoreRequestValidator(array \$data)
+    {
+        return Validator::make(\$data, []);
+    }
+
+    public static function getUpdateValidator(array \$data)
+    {
+        return Validator::make(\$data, []);
+    }
+
+    public static function getUpdateRequestValidator(array \$data)
+    {
+        return Validator::make(\$data, []);
+    }
+}
+*/
+	"Laravel Custom Model": {
+		"prefix": "lcm",
+		"body": [
+			"<?php",
+			"",
+			"namespace App\\Models;",
+			"",
+			"use Illuminate\\Database\\Eloquent\\Factories\\HasFactory;",
+			"use Illuminate\\Database\\Eloquent\\Model;",
+			"use Illuminate\\Support\\Facades\\Validator;",
+			"",
+			"class ${TM_FILENAME_BASE} extends Model",
+			"{",
+			"    use HasFactory;",
+			"",
+			"    protected \\$fillable = [",
+			"        'created_at',",
+			"        'updated_at',",
+			"    ];",
+			"",
+			"    public static function getQueryValidator(array \\$data)",
+			"    {",
+			"        return Validator::make(\\$data, [",
+			"          'id' => ['nullable', 'integer'],",
+			"          'created_at_greater_than' => ['nullable', 'date'],",
+			"          'created_at_lesser_than' => ['nullable', 'date'],",
+			"          'updated_at_greater_than' => ['nullable', 'date'],",
+			"          'updated_at_lesser_than' => ['nullable', 'date'],",
+			"        ]);",
+			"    }",
+			"",
+			"    public static function getStoreValidator(array \\$data)",
+			"    {",
+			"        return Validator::make(\\$data, []);",
+			"    }",
+			"",
+			"    public static function getStoreRequestValidator(array \\$data)",
+			"    {",
+			"        return Validator::make(\\$data, []);",
+			"    }",
+			"",
+			"    public static function getUpdateValidator(array \\$data)",
+			"    {",
+			"        return Validator::make(\\$data, []);",
+			"    }",
+			"",
+			"    public static function getUpdateRequestValidator(array \\$data)",
+			"    {",
+			"        return Validator::make(\\$data, []);",
+			"    }",
+			"}"
+		],
+		"description": "Laravel Custom Model"
+	}
+}

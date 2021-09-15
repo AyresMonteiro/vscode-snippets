@@ -1,0 +1,195 @@
+{
+	/*
+<?php
+
+namespace App\Http\Controllers;
+
+use App\Http\Handlers\DefaultResponseHandler;
+use App\Http\Helpers\\${TM_FILENAME_BASE/^(.+)Controller$/$1/}Helper;
+use Closure;
+use Illuminate\Http\Request;
+
+class ${TM_FILENAME_BASE} extends Controller
+{
+  /**
+   * Returns a closure that:
+   * Displays a listing of the resource.
+   *
+   * @return Closure
+  public static function index()
+  {
+     return function (Request \$req) {
+       \$data = ${TM_FILENAME_BASE/^(.+)Controller$/$1/}Helper::getIndexRequestData(\$req);
+       \$${TM_FILENAME_BASE/^(.+)Controller$/${1:/downcase}/}s = ${TM_FILENAME_BASE/^(.+)Controller$/$1/}Helper::get${TM_FILENAME_BASE/^(.+)Controller$/$1/}s(\$data);
+ 
+       return DefaultResponseHandler::customResponse(\$${TM_FILENAME_BASE/^(.+)Controller$/${1:/downcase}/}s);
+     };
+  }
+ 
+  /**
+  * Returns a closure that:
+  * Stores a newly created resource in storage.
+  * 
+  * @return Closure
+  public static function store()
+  {
+    return function (Request \$req) {
+      \$data = ${TM_FILENAME_BASE/^(.+)Controller$/$1/}Helper::getStoreRequestData(\$req);
+      \$${TM_FILENAME_BASE/^(.+)Controller$/${1:/downcase}/} = ${TM_FILENAME_BASE/^(.+)Controller$/$1/}Helper::handleStoreRequest(\$data);
+ 
+      return DefaultResponseHandler::customResponse(\$${TM_FILENAME_BASE/^(.+)Controller$/${1:/downcase}/});
+    };
+  }
+ 
+  /**
+   * Returns a closure that:
+   * Displays the specified resource.
+   *
+   * @return Closure
+  public static function show()
+  {
+    return function (Request \$req) {
+      \$queryData = ['id' => \$req->id];
+ 
+      \$${TM_FILENAME_BASE/^(.+)Controller$/${1:/downcase}/} = ${TM_FILENAME_BASE/^(.+)Controller$/$1/}Helper::get${TM_FILENAME_BASE/^(.+)Controller$/$1/}(\$queryData);
+ 
+      return DefaultResponseHandler::customResponse(\$${TM_FILENAME_BASE/^(.+)Controller$/${1:/downcase}/});
+    };
+  }
+ 
+  /**
+   * Returns a closure that:
+   * Updates the specified resource in storage.
+   *
+   * @return Closure
+  public static function update()
+  {
+    return function (Request \$req) {
+      \$queryData = ['id' => \$req->id];
+ 
+      \$data = ${TM_FILENAME_BASE/^(.+)Controller$/$1/}Helper::getUpdateRequestData(\$req);
+      \$${TM_FILENAME_BASE/^(.+)Controller$/${1:/downcase}/} = ${TM_FILENAME_BASE/^(.+)Controller$/$1/}Helper::handleUpdateRequest(\$queryData, \$data);
+ 
+      return DefaultResponseHandler::customResponse(\$${TM_FILENAME_BASE/^(.+)Controller$/${1:/downcase}/});
+    };
+  }
+ 
+  /**
+   * Returns a closure that:
+   * Removes the specified resource from storage.
+   *
+   * @return Closure
+  public static function destroy()
+  {
+    return function (Request \$req) {
+      \$queryData = ['id' => \$req->id];
+ 
+      ${TM_FILENAME_BASE/^(.+)Controller$/$1/}Helper::handleDeleteRequest(\$queryData);
+ 
+      return DefaultResponseHandler::defaultResponse();
+    };
+  }
+}
+	*/
+	"Laravel Custom Controller": {
+		"prefix": "lcc",
+		"body": [
+			"<?php",
+			"",
+			"namespace App\\Http\\Controllers;",
+			"",
+			"use App\\Http\\Handlers\\DefaultResponseHandler;",
+			"use App\\Http\\Helpers\\\\${TM_FILENAME_BASE/^(.+)Controller$/$1/}Helper;",
+			"use Closure;",
+			"use Illuminate\\Http\\Request;",
+			"",
+			"class ${TM_FILENAME_BASE} extends Controller",
+			"{",
+			"  /**",
+			"   * Returns a closure that:",
+			"   * Displays a listing of the resource.",
+			"   *",
+			"   * @return Closure",
+			"   */",
+			"  public static function index()",
+			"  {",
+			"     return function (Request \\$req) {",
+			"       \\$data = ${TM_FILENAME_BASE/^(.+)Controller$/$1/}Helper::getIndexRequestData(\\$req);",
+			"       \\$${TM_FILENAME_BASE/^(.+)Controller$/${1:/downcase}/}s = ${TM_FILENAME_BASE/^(.+)Controller$/$1/}Helper::get${TM_FILENAME_BASE/^(.+)Controller$/$1/}s(\\$data);",
+			" ",
+			"       return DefaultResponseHandler::customResponse(\\$${TM_FILENAME_BASE/^(.+)Controller$/${1:/downcase}/}s);",
+			"     };",
+			"  }",
+			" ",
+			"  /**",
+			"   * Returns a closure that:",
+			"   * Stores a newly created resource in storage.",
+			"   * ",
+			"   * @return Closure",
+			"   */",
+			"  public static function store()",
+			"  {",
+			"    return function (Request \\$req) {",
+			"      \\$data = ${TM_FILENAME_BASE/^(.+)Controller$/$1/}Helper::getStoreRequestData(\\$req);",
+			"      \\$${TM_FILENAME_BASE/^(.+)Controller$/${1:/downcase}/} = ${TM_FILENAME_BASE/^(.+)Controller$/$1/}Helper::handleStoreRequest(\\$data);",
+			" ",
+			"      return DefaultResponseHandler::customResponse(\\$${TM_FILENAME_BASE/^(.+)Controller$/${1:/downcase}/});",
+			"    };",
+			"  }",
+			" ",
+			"  /**",
+			"   * Returns a closure that:",
+			"   * Displays the specified resource.",
+			"   *",
+			"   * @return Closure",
+			"   */",
+			"  public static function show()",
+			"  {",
+			"    return function (Request \\$req) {",
+			"      \\$queryData = ['id' => \\$req->id];",
+			" ",
+			"      \\$${TM_FILENAME_BASE/^(.+)Controller$/${1:/downcase}/} = ${TM_FILENAME_BASE/^(.+)Controller$/$1/}Helper::get${TM_FILENAME_BASE/^(.+)Controller$/$1/}(\\$queryData);",
+			" ",
+			"      return DefaultResponseHandler::customResponse(\\$${TM_FILENAME_BASE/^(.+)Controller$/${1:/downcase}/});",
+			"    };",
+			"  }",
+			" ",
+			"  /**",
+			"   * Returns a closure that:",
+			"   * Updates the specified resource in storage.",
+			"   *",
+			"   * @return Closure",
+			"   */",
+			"  public static function update()",
+			"  {",
+			"    return function (Request \\$req) {",
+			"      \\$queryData = ['id' => \\$req->id];",
+			" ",
+			"      \\$data = ${TM_FILENAME_BASE/^(.+)Controller$/$1/}Helper::getUpdateRequestData(\\$req);",
+			"      \\$${TM_FILENAME_BASE/^(.+)Controller$/${1:/downcase}/} = ${TM_FILENAME_BASE/^(.+)Controller$/$1/}Helper::handleUpdateRequest(\\$queryData, \\$data);",
+			" ",
+			"      return DefaultResponseHandler::customResponse(\\$${TM_FILENAME_BASE/^(.+)Controller$/${1:/downcase}/});",
+			"    };",
+			"  }",
+			" ",
+			"  /**",
+			"   * Returns a closure that:",
+			"   * Removes the specified resource from storage.",
+			"   *",
+			"   * @return Closure",
+			"   */",
+			"  public static function destroy()",
+			"  {",
+			"    return function (Request \\$req) {",
+			"      \\$queryData = ['id' => \\$req->id];",
+			" ",
+			"      ${TM_FILENAME_BASE/^(.+)Controller$/$1/}Helper::handleDeleteRequest(\\$queryData);",
+			" ",
+			"      return DefaultResponseHandler::defaultResponse();",
+			"    };",
+			"  }",
+			"}"
+		],
+		"description": "Laravel Custom Controller"
+	}
+}

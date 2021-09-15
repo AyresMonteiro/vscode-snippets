@@ -1,0 +1,262 @@
+{
+	/*
+<?php
+
+namespace App\Http\Helpers;
+
+use App\Exceptions\GenericAppException;
+use App\Http\Helpers\GenericHelper;
+use App\Models\\${TM_FILENAME_BASE/^(.+)Helper$/$1/};
+use Illuminate\Http\Request;
+
+class ${TM_FILENAME_BASE}
+{
+  public static function getStoreRequestData(Request \$req)
+  {
+    return array_filter([]);
+  }
+
+  public static function getUpdateRequestData(Request \$req)
+  {
+    return array_filter([]);
+  }
+
+  public static function getIndexRequestData(Request \$req)
+  {
+    return array_filter([]);
+  }
+
+  public static function handleStoreRequest(array \$data)
+  {
+    GenericHelper::validate(${TM_FILENAME_BASE/^(.+)Helper$/$1/}::getStoreRequestValidator(\$data));
+
+    \$${TM_FILENAME_BASE/^(.+)Helper$/${1:/downcase}/} = self::save${TM_FILENAME_BASE/^(.+)Helper$/$1/}(\$data);
+
+    return \$${TM_FILENAME_BASE/^(.+)Helper$/${1:/downcase}/};
+  }
+
+  public static function handleUpdateRequest(array \$findData, array \$updateData)
+  {
+    GenericHelper::validate(${TM_FILENAME_BASE/^(.+)Helper$/$1/}::getUpdateRequestValidator(\$updateData));
+
+    \$${TM_FILENAME_BASE/^(.+)Helper$/${1:/downcase}/} = self::update${TM_FILENAME_BASE/^(.+)Helper$/$1/}(\$findData, \$updateData);
+
+    return \$${TM_FILENAME_BASE/^(.+)Helper$/${1:/downcase}/};
+  }
+
+	public static function handleDeleteRequest(array \$findData)
+  {
+    self::delete${TM_FILENAME_BASE/^(.+)Helper$/$1/}(\$findData);
+  }
+
+  public static function getTreatedQuery(array \$data)
+  {
+    GenericHelper::validate(${TM_FILENAME_BASE/^(.+)Helper$/$1/}::getQueryValidator(\$data));
+
+    \$fixedValues = GenericHelper::getFixedValues(\$data);
+    \$searchValues = GenericHelper::getSearchValues(\$data);
+    \$compareValues = GenericHelper::getCompareValues(\$data);
+
+    \$builder = ${TM_FILENAME_BASE/^(.+)Helper$/$1/}::where(\$fixedValues);
+    \$builder = GenericHelper::handleSearchValues(\$builder, \$searchValues);
+    \$builder = GenericHelper::handleCompareValues(\$builder, \$compareValues);
+
+    return \$builder;
+  }
+
+  public static function get${TM_FILENAME_BASE/^(.+)Helper$/$1/}(array \$data, bool \$enableNotFoundError = true)
+  {
+    \$builder = self::getTreatedQuery(\$data);
+
+    \$${TM_FILENAME_BASE/^(.+)Helper$/${1:/downcase}/} = \$builder->first();
+
+    if (\$enableNotFoundError && !isset(\$${TM_FILENAME_BASE/^(.+)Helper$/${1:/downcase}/})) {
+      throw new GenericAppException([__('messages.not_found_error')], 404);
+    }
+
+    return \$${TM_FILENAME_BASE/^(.+)Helper$/${1:/downcase}/};
+  }
+
+  public static function get${TM_FILENAME_BASE/^(.+)Helper$/$1/}s(array \$data, bool \$enableNotFoundError = false)
+  {
+    \$builder = self::getTreatedQuery(\$data);
+
+    \$${TM_FILENAME_BASE/^(.+)Helper$/${1:/downcase}/}s = \$builder->get();
+
+    if (\$enableNotFoundError && sizeof(\$${TM_FILENAME_BASE/^(.+)Helper$/${1:/downcase}/}s) === 0) {
+      throw new GenericAppException([__('messages.not_found_error')], 404);
+    }
+
+    return \$${TM_FILENAME_BASE/^(.+)Helper$/${1:/downcase}/}s;
+  }
+
+  public static function delete${TM_FILENAME_BASE/^(.+)Helper$/$1/}(array \$data)
+  {
+    \$${TM_FILENAME_BASE/^(.+)Helper$/${1:/downcase}/} = self::get${TM_FILENAME_BASE/^(.+)Helper$/$1/}(\$data);
+
+    if (!\$${TM_FILENAME_BASE/^(.+)Helper$/${1:/downcase}/}->delete()) {
+			throw new GenericAppException([__('messages.delete_error')], 500);
+		};
+  }
+
+	protected static function save${TM_FILENAME_BASE/^(.+)Helper$/$1/}(array \$data)
+  {
+    GenericHelper::validate(${TM_FILENAME_BASE/^(.+)Helper$/$1/}::getStoreValidator(\$data));
+
+    \$${TM_FILENAME_BASE/^(.+)Helper$/${1:/downcase}/} = new ${TM_FILENAME_BASE/^(.+)Helper$/$1/}(\$data);
+    \$${TM_FILENAME_BASE/^(.+)Helper$/${1:/downcase}/}->save();
+
+    return \$${TM_FILENAME_BASE/^(.+)Helper$/${1:/downcase}/};
+  }
+
+	protected static function update${TM_FILENAME_BASE/^(.+)Helper$/$1/}(array \$findData, array \$updateData)
+  {
+    GenericHelper::validate(${TM_FILENAME_BASE/^(.+)Helper$/$1/}::getUpdateValidator(\$updateData));
+
+    \$${TM_FILENAME_BASE/^(.+)Helper$/${1:/downcase}/} = self::get${TM_FILENAME_BASE/^(.+)Helper$/$1/}(\$findData);
+
+    \$${TM_FILENAME_BASE/^(.+)Helper$/${1:/downcase}/}->fill(\$updateData);
+
+    if (sizeof(\$${TM_FILENAME_BASE/^(.+)Helper$/${1:/downcase}/}->getDirty()) === 0) {
+      throw new GenericAppException([__('messages.up_to_date_error')], 400);
+    }
+
+    \$${TM_FILENAME_BASE/^(.+)Helper$/${1:/downcase}/}->save();
+
+    return \$${TM_FILENAME_BASE/^(.+)Helper$/${1:/downcase}/};
+  }
+}
+*/
+	"Laravel Custom Helper": {
+		"prefix": "lch",
+		"body": [
+			"<?php",
+			"",
+			"namespace App\\Http\\Helpers;",
+			"",
+			"use App\\Exceptions\\GenericAppException;",
+			"use App\\Http\\Helpers\\GenericHelper;",
+			"use App\\Models\\\\${TM_FILENAME_BASE/^(.+)Helper$/$1/};",
+			"use Illuminate\\Http\\Request;",
+			"",
+			"class ${TM_FILENAME_BASE/^.*(\\\\\\\\/|\\\\\\\\\\\\\\\\)([^(\\\\\\\\/|\\\\\\\\\\\\\\\\)]+)$/$2/}",
+			"{",
+			"  public static function getStoreRequestData(Request \\$req)",
+			"  {",
+			"    return array_filter([]);",
+			"  }",
+			"",
+			"  public static function getUpdateRequestData(Request \\$req)",
+			"  {",
+			"    return array_filter([]);",
+			"  }",
+			"",
+			"  public static function getIndexRequestData(Request \\$req)",
+			"  {",
+			"    return array_filter([]);",
+			"  }",
+			"",
+			"  public static function handleStoreRequest(array \\$data)",
+			"  {",
+			"    GenericHelper::validate(${TM_FILENAME_BASE/^(.+)Helper$/$1/}::getStoreRequestValidator(\\$data));",
+			"",
+			"    \\$${TM_FILENAME_BASE/^(.+)Helper$/${1:/downcase}/} = self::save${TM_FILENAME_BASE/^(.+)Helper$/$1/}(\\$data);",
+			"",
+			"    return \\$${TM_FILENAME_BASE/^(.+)Helper$/${1:/downcase}/};",
+			"  }",
+			"",
+			"  public static function handleUpdateRequest(array \\$findData, array \\$updateData)",
+			"  {",
+			"    GenericHelper::validate(${TM_FILENAME_BASE/^(.+)Helper$/$1/}::getUpdateRequestValidator(\\$updateData));",
+			"",
+			"    \\$${TM_FILENAME_BASE/^(.+)Helper$/${1:/downcase}/} = self::update${TM_FILENAME_BASE/^(.+)Helper$/$1/}(\\$findData, \\$updateData);",
+			"",
+			"    return \\$${TM_FILENAME_BASE/^(.+)Helper$/${1:/downcase}/};",
+			"  }",
+			"",
+			"  public static function handleDeleteRequest(array \\$findData)",
+			"  {",
+			"    self::delete${TM_FILENAME_BASE/^(.+)Helper$/$1/}(\\$findData);",
+			"  }",
+			"",
+			"  public static function getTreatedQuery(array \\$data)",
+			"  {",
+			"    GenericHelper::validate(${TM_FILENAME_BASE/^(.+)Helper$/$1/}::getQueryValidator(\\$data));",
+			"",
+			"    \\$fixedValues = GenericHelper::getFixedValues(\\$data);",
+			"    \\$searchValues = GenericHelper::getSearchValues(\\$data);",
+			"    \\$compareValues = GenericHelper::getCompareValues(\\$data);",
+			"",
+			"    \\$builder = ${TM_FILENAME_BASE/^(.+)Helper$/$1/}::where(\\$fixedValues);",
+			"    \\$builder = GenericHelper::handleSearchValues(\\$builder, \\$searchValues);",
+			"    \\$builder = GenericHelper::handleCompareValues(\\$builder, \\$compareValues);",
+			"",
+			"    return \\$builder;",
+			"  }",
+			"",
+			"  public static function get${TM_FILENAME_BASE/^(.+)Helper$/$1/}(array \\$data, bool \\$enableNotFoundError = true)",
+			"  {",
+			"    \\$builder = self::getTreatedQuery(\\$data);",
+			"",
+			"    \\$${TM_FILENAME_BASE/^(.+)Helper$/${1:/downcase}/} = \\$builder->first();",
+			"",
+			"    if (\\$enableNotFoundError && !isset(\\$${TM_FILENAME_BASE/^(.+)Helper$/${1:/downcase}/})) {",
+			"      throw new GenericAppException([__('messages.not_found_error')], 404);",
+			"    }",
+			"",
+			"    return \\$${TM_FILENAME_BASE/^(.+)Helper$/${1:/downcase}/};",
+			"  }",
+			"",
+			"  public static function get${TM_FILENAME_BASE/^(.+)Helper$/$1/}s(array \\$data, bool \\$enableNotFoundError = false)",
+			"  {",
+			"    \\$builder = self::getTreatedQuery(\\$data);",
+			"",
+			"    \\$${TM_FILENAME_BASE/^(.+)Helper$/${1:/downcase}/}s = \\$builder->get();",
+			"",
+			"    if (\\$enableNotFoundError && sizeof(\\$${TM_FILENAME_BASE/^(.+)Helper$/${1:/downcase}/}s) === 0) {",
+			"      throw new GenericAppException([__('messages.not_found_error')], 404);",
+			"    }",
+			"",
+			"    return \\$${TM_FILENAME_BASE/^(.+)Helper$/${1:/downcase}/}s;",
+			"  }",
+			"",
+			"  public static function delete${TM_FILENAME_BASE/^(.+)Helper$/$1/}(array \\$data)",
+			"  {",
+			"    \\$${TM_FILENAME_BASE/^(.+)Helper$/${1:/downcase}/} = self::get${TM_FILENAME_BASE/^(.+)Helper$/$1/}(\\$data);",
+			"",
+			"    if (!\\$${TM_FILENAME_BASE/^(.+)Helper$/${1:/downcase}/}->delete()) {",
+			"      throw new GenericAppException([__('messages.delete_error')], 500);",
+			"    };",
+			"  }",
+			"",
+			"  protected static function save${TM_FILENAME_BASE/^(.+)Helper$/$1/}(array \\$data)",
+			"  {",
+			"    GenericHelper::validate(${TM_FILENAME_BASE/^(.+)Helper$/$1/}::getStoreValidator(\\$data));",
+			"",
+			"    \\$${TM_FILENAME_BASE/^(.+)Helper$/${1:/downcase}/} = new ${TM_FILENAME_BASE/^(.+)Helper$/$1/}(\\$data);",
+			"    \\$${TM_FILENAME_BASE/^(.+)Helper$/${1:/downcase}/}->save();",
+			"",
+			"    return \\$${TM_FILENAME_BASE/^(.+)Helper$/${1:/downcase}/};",
+			"  }",
+			"",
+			"  protected static function update${TM_FILENAME_BASE/^(.+)Helper$/$1/}(array \\$findData, array \\$updateData)",
+			"  {",
+			"    GenericHelper::validate(${TM_FILENAME_BASE/^(.+)Helper$/$1/}::getUpdateValidator(\\$updateData));",
+			"",
+			"    \\$${TM_FILENAME_BASE/^(.+)Helper$/${1:/downcase}/} = self::get${TM_FILENAME_BASE/^(.+)Helper$/$1/}(\\$findData);",
+			"",
+			"    \\$${TM_FILENAME_BASE/^(.+)Helper$/${1:/downcase}/}->fill(\\$updateData);",
+			"",
+			"    if (sizeof(\\$${TM_FILENAME_BASE/^(.+)Helper$/${1:/downcase}/}->getDirty()) === 0) {",
+			"      throw new GenericAppException([__('messages.up_to_date_error')], 400);",
+			"    }",
+			"",
+			"    \\$${TM_FILENAME_BASE/^(.+)Helper$/${1:/downcase}/}->save();",
+			"",
+			"    return \\$${TM_FILENAME_BASE/^(.+)Helper$/${1:/downcase}/};",
+			"  }",
+			"}"
+		],
+		"description": "Laravel Custom Helper"
+	}
+}

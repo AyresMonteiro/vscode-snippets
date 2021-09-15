@@ -23,7 +23,12 @@ class ${TM_FILENAME_BASE}
 
   public static function getIndexRequestData(Request \$req)
   {
-    return array_filter([]);
+    return array_filter([
+			'created_at_greater_than' => \$req->${TM_FILENAME_BASE/^(.+)Helper$/${1:/downcase}/}CreatedAtGreaterThan,
+      'created_at_lesser_than' => \$req->${TM_FILENAME_BASE/^(.+)Helper$/${1:/downcase}/}CreatedAtLesserThan,
+      'updated_at_greater_than' => \$req->${TM_FILENAME_BASE/^(.+)Helper$/${1:/downcase}/}UpdatedAtGreaterThan,
+      'updated_at_lesser_than' => \$req->${TM_FILENAME_BASE/^(.+)Helper$/${1:/downcase}/}UpdatedAtLesserThan,
+		]);
   }
 
   public static function handleStoreRequest(array \$data)
@@ -153,7 +158,12 @@ class ${TM_FILENAME_BASE}
 			"",
 			"  public static function getIndexRequestData(Request \\$req)",
 			"  {",
-			"    return array_filter([]);",
+			"    return array_filter([",
+			"      'created_at_greater_than' => \\$req->${TM_FILENAME_BASE/^(.+)Helper$/${1:/downcase}/}CreatedAtGreaterThan,",
+			"      'created_at_lesser_than' => \\$req->${TM_FILENAME_BASE/^(.+)Helper$/${1:/downcase}/}CreatedAtLesserThan,",
+			"      'updated_at_greater_than' => \\$req->${TM_FILENAME_BASE/^(.+)Helper$/${1:/downcase}/}UpdatedAtGreaterThan,",
+			"      'updated_at_lesser_than' => \\$req->${TM_FILENAME_BASE/^(.+)Helper$/${1:/downcase}/}UpdatedAtLesserThan,",
+			"    ]);",
 			"  }",
 			"",
 			"  public static function handleStoreRequest(array \\$data)",

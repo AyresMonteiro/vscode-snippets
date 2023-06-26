@@ -1,0 +1,39 @@
+{
+  "JavaScript MongoDB Script": {
+    "scope": "javascript",
+    "prefix": "jsmdbs",
+    "body": [
+      "const { MongoClient } = require(\"mongodb\");",
+      "",
+      "const databaseUri = \"INSERT YOUR DATABASE URI HERE\";",
+      "",
+      "const mongoClient = new MongoClient(databaseUri);",
+      "",
+      "async function clientConnect (data) {",
+      "  await mongoClient.connect();",
+      "",
+      "  console.log(\"[Mongo] Successfully connected\");",
+      "",
+      "  return data;",
+      "}",
+      "",
+      "async function getCollection () {",
+      "  return await mongoClient",
+      "    .db(\"$1\")",
+      "    .collection(\"$2\")",
+      "    .find($3)",
+      "    .toArray();",
+      "}",
+      "",
+      "clientConnect()",
+      "  .catch(console.error)",
+      "  .then(getCollection)",
+      "  .then(console.log)",
+      "  .finally(() => {",
+      "    mongoClient.close();",
+      "    console.log(\"[Mongo] Connection closed\");",
+      "  })"
+    ],
+    "description": "Generates JS MongoDB Script Boilerplate"
+  }
+}

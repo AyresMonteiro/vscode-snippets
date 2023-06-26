@@ -35,5 +35,35 @@
       "  })"
     ],
     "description": "Generates JS MongoDB Script Boilerplate"
+  },
+  "JavaScript Sheet Script": {
+    "scope": "javascript",
+    "prefix": "jsss",
+    "body": [
+      "const nodeXlsx = require(\"node-xlsx\");",
+      "const path = require(\"path\");",
+      "",
+      "const sourceFilePath = path.resolve(__dirname, \"$1\");",
+      "",
+      "async function readXlsx(filePath) {",
+      "  console.log(\"[Node XLSX] File reading: started\");",
+      "",
+      "  const workSheets = nodeXlsx.parse(filePath, { cellDates: true });",
+      "",
+      "  console.log(\"[Node XLSX] File reading: finished\");",
+      "",
+      "  return workSheets;",
+      "}",
+      "",
+      "function getTable(data) {",
+      "  return data.find((d) => d.name === \"$2\");",
+      "}",
+      "",
+      "readXlsx(sourceFilePath)",
+      "  .catch(console.error)",
+      "  .then(getTable)",
+      "  .then(console.log)"
+    ],
+    "description": "Generates JS MongoDB Script Boilerplate"
   }
 }

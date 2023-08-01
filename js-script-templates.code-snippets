@@ -64,6 +64,6 @@
       "  .then(getTable)",
       "  .then(console.log)"
     ],
-    "description": "Generates JS MongoDB Script Boilerplate"
+    "description": "Generates JS Sheet Script Boilerplate"
   }
 }

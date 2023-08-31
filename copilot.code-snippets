@@ -1,0 +1,11 @@
+{
+  "Ask Copilot": {
+    "prefix": "ac",
+    "body": [
+      "${LINE_COMMENT} -------------------------------------------",
+      "${LINE_COMMENT} Hey Copilot, what does is $1?",
+      "${LINE_COMMENT} Answer: $2",
+      "${LINE_COMMENT} -------------------------------------------"
+    ]
+  }
+}
